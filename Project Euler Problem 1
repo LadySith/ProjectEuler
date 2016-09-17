@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+class Solution {
+    static void Main(String[] args) {
+        int cases = int.Parse(Console.ReadLine());
+        long[] nums = new long[cases];
+        for (int i = 0; i < cases; i++)
+            {
+            nums[i] = long.Parse(Console.ReadLine());
+            Console.WriteLine(getSum(nums[i]));
+        }
+    }
+    
+    public static long getSum(long n)
+        {
+        if (n%3 == 0 || n%5 == 0)
+            n--;
+        
+        long a = ((n)/3);
+        long b = ((n)/5);
+        long c = ((n)/15);
+        
+        return (long)(3*(a*(a+1)/2.0) + 5*(b*(b+1)/2.0) - 15*(c*(c+1)/2.0));
+    }
+}
